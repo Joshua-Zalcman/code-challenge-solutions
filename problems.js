@@ -37,6 +37,8 @@ function isIPv4Address(str) {
 //============================================
 
 // 3) In the popular Minesweeper game you have a board with some mines and those cells that don't contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.
+
+//solution:
 function minesweeper(matrix) {
     let mineFeild = []
     for(let i = 0; i<matrix.length; i++){
@@ -66,4 +68,29 @@ function minesweeper(matrix) {
         mineFeild.push(arr)
     }
     return mineFeild
+}
+//============================================
+
+// 4)Given two cells on the standard chess board, determine whether they have the same color or not.
+
+// Example
+
+// For cell1 = "A1" and cell2 = "C3", the output should be
+// chessBoardCellColor(cell1, cell2) = true.
+
+
+//solution:
+function chessBoardCellColor(cell1, cell2) {
+    
+    function determineColor(letter,num){
+        if(letter%2 !== 0 && num%2 !== 0 || letter%2 === 0 && num%2 === 0){
+            return 'dark'
+        } else {
+            return 'light'
+        }
+    }
+    let firstCell = determineColor(cell1.charCodeAt(0),(+cell1[1]))
+    let secondCell = determineColor(cell2.charCodeAt(0),(+cell2[1]))
+    
+    return firstCell === secondCell
 }
