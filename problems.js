@@ -119,3 +119,28 @@ function lateRide(n) {
     let min = (n%60)
     return timeToDigit(hr) + timeToDigit(min)
 }
+//============================================
+// 6)You found two items in a treasure chest! The first item weighs weight1 and is worth value1, and the second item weighs weight2 and is worth value2. What is the total maximum value of the items you can take with you, assuming that your max weight capacity is maxW and you can't come back for the items later?
+
+// Note that there are only two items and you can't bring more than one item of each type, i.e. you can't take two first items or two second items.
+
+//solution:
+function knapsackLight(value1, weight1, value2, weight2, maxW) {
+    let totalV = 0;
+    if(value1 > value2){
+        if(maxW >= weight1){
+            totalV += value1;
+            if(maxW - weight1 >= weight2) totalV += value2;
+        }else if(maxW >= weight2){
+            totalV += value2;
+        }
+    } else {
+        if(maxW >= weight2){
+            totalV += value2;
+            if(maxW - weight2 >= weight1) totalV += value1;
+        }else if(maxW >= weight1){
+            totalV += value1;
+        }
+    }
+    return totalV;
+}
