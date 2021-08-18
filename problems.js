@@ -175,3 +175,28 @@ function lineUp(commands) {
     }
     return same
 }
+//============================================
+// 9)A little child is studying arithmetic. They have just learned how to add two integers, written one below another, column by column. But the child always forgets about the important part - carrying.
+
+// Given two integers, your task is to find the result that the child will get.
+
+//solution:
+function additionWithoutCarrying(param1, param2) {
+    let num1 = param1.toString().split('').reverse();
+    let num2 = param2.toString().split('').reverse();
+    let i = 0;
+    let arr = [];
+    while(i < num1.length || i<num2.length){
+        if(num1[i] && num2[i]){
+            let sum = +num1[i] + +num2[i]
+            if(sum >= 10) sum = sum - 10
+            arr.push(sum)
+        } else if(num1[i]){
+            arr.push(+num1[i])
+        } else if(num2[i]){
+            arr.push(+num2[i])
+        }
+        i++
+    }
+    return +arr.reverse().join('')
+}
