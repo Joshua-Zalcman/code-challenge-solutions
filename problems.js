@@ -238,3 +238,26 @@ function rounders(n) {
     }
     return +arr.reverse().join("")
 }
+//============================================
+// 12)When a candle finishes burning it leaves a leftover. makeNew leftovers can be combined to make a new candle, which, when burning down, will in turn leave another leftover.
+
+// You have candlesNumber candles in your possession. What's the total number of candles you can burn, assuming that you create new candles as soon as you have enough leftovers?
+
+//solution:
+function candles(candlesNumber, makeNew) {
+    let count = candlesNumber;
+    let leftover = candlesNumber;
+    while(leftover >= makeNew) {
+        leftover -= makeNew;
+        count++
+        leftover++
+    }
+    return count
+}
+
+// 13)Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
+
+//solution:
+function arrayReplace(inputArray, elemToReplace, substitutionElem) {
+    return inputArray.map(x=> x === elemToReplace ? substitutionElem : x)
+}
