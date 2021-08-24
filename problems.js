@@ -281,3 +281,19 @@ function isSmooth(arr) {
     console.log(middle)
     return arr[0] === arr[arr.length-1] && arr[0] === middle
 }
+
+//============================================
+
+// 15)We define the middle of the array arr as follows:
+// if arr contains an odd number of elements, its middle is the element whose index number is the same when counting from the beginning of the array and from its end;
+// if arr contains an even number of elements, its middle is the sum of the two elements whose index numbers when counting from the beginning and from the end of the array differ by one.
+// Given array arr, your task is to find its middle, and, if it consists of two elements, replace those elements with the value of middle. Return the resulting array as the answer.
+
+//solution:
+function replaceMiddle(arr) {
+    if(arr.length%2 !== 0) return arr
+    let middle = arr[arr.length/2] + arr[arr.length/2 - 1]
+    arr[arr.length/2] = middle
+    arr.splice(arr.length/2 -1,1)
+    return arr
+}
