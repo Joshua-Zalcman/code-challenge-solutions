@@ -312,3 +312,22 @@ function makeArrayConsecutive2(statues) {
     }
     return tracker
 }
+
+//============================================
+
+// 17)Determine if the given number is a power of some non-negative integer.
+
+//solution:
+function isPower(n) {
+    if(Math.sqrt(n)%1 === 0) return true;
+    for(let i = 2; i < n/2; i++){
+        let sum = 0;
+        let power = 3;
+        while(sum < n){
+            sum = i**power;
+            if(sum === n) return true;
+            power++
+        }
+    }
+    return false
+}
