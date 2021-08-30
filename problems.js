@@ -100,12 +100,7 @@ function chessBoardCellColor(cell1, cell2) {
 
 // Using the bike's timer, calculate the current time. Return an answer as the sum of digits that the digital timer in the format hh:mm would show.
 
-// Example
 
-// For n = 240, the output should be
-// lateRide(n) = 4.
-
-// Since 240 minutes have passed, the current time is 04:00. The digits sum up to 0 + 4 + 0 + 0 = 4, which is the answer.
 
 
 
@@ -311,4 +306,23 @@ function makeArrayConsecutive2(statues) {
         }
     }
     return tracker
+}
+
+//============================================
+
+// 17)Determine if the given number is a power of some non-negative integer.
+
+//solution:
+function isPower(n) {
+    if(Math.sqrt(n)%1 === 0) return true;
+    for(let i = 2; i < n/2; i++){
+        let sum = 0;
+        let power = 3;
+        while(sum < n){
+            sum = i**power;
+            if(sum === n) return true;
+            power++
+        }
+    }
+    return false
 }
