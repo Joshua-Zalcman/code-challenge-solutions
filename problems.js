@@ -100,12 +100,7 @@ function chessBoardCellColor(cell1, cell2) {
 
 // Using the bike's timer, calculate the current time. Return an answer as the sum of digits that the digital timer in the format hh:mm would show.
 
-// Example
 
-// For n = 240, the output should be
-// lateRide(n) = 4.
-
-// Since 240 minutes have passed, the current time is 04:00. The digits sum up to 0 + 4 + 0 + 0 = 4, which is the answer.
 
 
 
