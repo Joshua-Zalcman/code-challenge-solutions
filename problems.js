@@ -404,3 +404,33 @@ function pagesNumberingWithInk(current, numberOfDigits) {
     }
     return current-1
 }
+//============================================
+
+// 22)A ciphertext alphabet is obtained from the plaintext alphabet by means of rearranging some characters. For example "bacdef...xyz" will be a simple ciphertext alphabet where a and b are rearranged.
+
+// A substitution cipher is a method of encoding where each letter of the plaintext alphabet is replaced with the corresponding (i.e. having the same index) letter of some ciphertext alphabet.
+
+// Given two strings, check whether it is possible to obtain them from each other using some (possibly, different) substitution ciphers.
+
+
+
+//solution:
+function isSubstitutionCipher(string1, string2) {
+    let arr1 = string1.split('')
+    let arr2 = string2.split('')
+    let obj1 = {}
+    let obj2 = {}
+    for(let i=0;i<arr1.length; i++){
+        if(obj1[arr1[i]]){
+            if(obj1[arr1[i]] !== arr2[i]) return false
+        }else{
+            obj1[arr1[i]] = arr2[i]
+        }
+        if(obj2[arr2[i]]){
+            if(obj2[arr2[i]] !== arr1[i]) return false
+        }else{
+            obj2[arr2[i]] = arr1[i]
+        }
+    }
+    return true
+}
