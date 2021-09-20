@@ -463,6 +463,8 @@ function growingPlant(upSpeed, downSpeed, desiredHeight) {
 
 // Given an integer, find its digit degree.
 
+
+//solution:
 function digitDegree(n) {
     let count = 0
     while(n >= 10){
@@ -470,6 +472,27 @@ function digitDegree(n) {
         count++
     }
     return count
-}
+
+    //============================================
+
+// 25)Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
+
+// The bishop has no restrictions in distance for each move, but is limited to diagonal movement. Check out the example below to see how it can move:
+
 
 //solution:
+function bishopAndPawn(bishop, pawn) {
+    let letters = ['a','b','c','d','e','f','g','h']
+    let options = []
+    let pos = bishop.split('')[0]
+    let num = +bishop.split('')[1]
+    let index = letters.indexOf(pos)
+    for(let i = 0; i < letters.length; i++){
+        if(letters[i]!==pos){
+            if(num+(index - i)<=8)options.push(letters[i].concat(num+(index-i)))
+            if(num-(index - i)>=1)options.push(letters[i].concat(num-(index -i)))
+        }    
+    }
+    console.log(options)
+    return options.includes(pawn)
+}
