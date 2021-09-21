@@ -472,7 +472,7 @@ function digitDegree(n) {
         count++
     }
     return count
-
+}
     //============================================
 
 // 25)Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
@@ -495,4 +495,28 @@ function bishopAndPawn(bishop, pawn) {
     }
     console.log(options)
     return options.includes(pawn)
+}
+// 26)A string is said to be beautiful if each letter in the string appears at most as many times as the previous letter in the alphabet within the string; ie: b occurs no more times than a; c occurs no more times than b; etc. Note that letter a has no previous letter.
+
+// Given a string, check whether it is beautiful.
+
+//solution:
+function isBeautifulString(str) {
+    let arr = str.split('').sort()
+    let letters = Array.from(new Set(arr))
+    for(let i=0; i<letters.length; i++){
+        if(letters[i] !== 'a'){
+            let num = letters[i].charCodeAt(0)
+            if(!letters.includes(String.fromCharCode(num-1))){
+                return false
+            } else {
+                let re = new RegExp(letters[i], "g");
+                let re2 = new RegExp(String.fromCharCode(num-1), "g");
+                let count = str.match(re).length
+                let countPrev = str.match(re2).length
+                if(count > countPrev) return false
+            }
+        }
+    }
+    return true
 }
