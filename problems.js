@@ -520,3 +520,15 @@ function isBeautifulString(str) {
     }
     return true
 }
+// 27)Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+
+//solution:
+function buildPalindrome(str) {
+    let arr = str.split('').reverse()
+    if(str === arr.join('')) return str
+    for(let i = 1; i< arr.length; i++){
+        let chunk = arr.slice(-i).join('')
+        let pali = str.concat(chunk)
+        if(pali === pali.split('').reverse().join('')) return pali
+    }
+}
