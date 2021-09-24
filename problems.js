@@ -532,3 +532,18 @@ function buildPalindrome(str) {
         if(pali === pali.split('').reverse().join('')) return pali
     }
 }
+// 28)Elections are in progress!
+
+// Given an array of the numbers of votes given to each of the candidates so far, and an integer k equal to the number of voters who haven't cast their vote yet, find the number of candidates who still have a chance to win the election.
+
+// The winner of the election must secure strictly more votes than any other candidate. If two or more candidates receive the same (maximum) number of votes, assume there is no winner at all.
+
+//solution:
+function electionsWinners(votes, k) {
+    let lead = Math.max(...votes)
+    if(k === 0){
+       return  votes.filter(x=> x === lead).length > 1 ?  0 :  1
+    }
+    let arr = votes.filter(x=> x+k > lead)
+    return arr.length
+}
