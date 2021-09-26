@@ -547,3 +547,10 @@ function electionsWinners(votes, k) {
     let arr = votes.filter(x=> x+k > lead)
     return arr.length
 }
+
+// 30)Find the leftmost digit that occurs in a given string.
+
+//solution:
+function firstDigit(str) {
+    return str.match(/[0-9]/)[0]
+}
