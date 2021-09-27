@@ -554,3 +554,25 @@ function electionsWinners(votes, k) {
 function firstDigit(str) {
     return str.match(/[0-9]/)[0]
 }
+// 31)Given a position of a knight on the standard chessboard, find the number of different moves the knight can perform.
+
+// The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from it. The complete move therefore looks like the letter L.
+
+//solution:
+function chessKnight(cell) {
+    const boardMoves = [
+        [2,3,4,4,4,4,3,2],
+        [3,4,6,6,6,6,4,3],
+        [4,6,8,8,8,8,6,4],
+        [4,6,8,8,8,8,6,4],
+        [4,6,8,8,8,8,6,4],
+        [4,6,8,8,8,8,6,4],
+        [3,4,6,6,6,6,4,3],
+        [2,3,4,4,4,4,3,2],
+    ]
+    let arr = 'abcdefgh'.split('')
+    let letter = arr.indexOf(cell[0])
+    let num = +cell[1] - 1
+    
+    return boardMoves[letter][num]
+}
