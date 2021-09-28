@@ -576,3 +576,16 @@ function chessKnight(cell) {
     
     return boardMoves[letter][num]
 }
+// 32)Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
+
+//solution:
+function deleteDigit(n) {
+    let arr = n.toString().split('')
+    let max = 0
+    for(let i = 0; i<arr.length; i++){
+        let arr2 = arr.filter((x,index)=> index !== i)
+        let num = +(arr2.join(''))
+        if(num>max) max = num
+    }
+     return max
+}
