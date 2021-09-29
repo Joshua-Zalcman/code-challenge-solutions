@@ -595,3 +595,11 @@ function deleteDigit(n) {
 function longestWord(text) {
     return text.replace(/(\W|_)/g," ").split(" ").sort((a,b)=> b.length-a.length)[0]
  }
+
+ // 34)Check if the given string is a correct time representation of the 24-hour clock.
+
+//solution:
+function validTime(time) {
+    let arr = time.split(':')
+    return +arr[0] < 24 && +arr[1] < 60
+}
