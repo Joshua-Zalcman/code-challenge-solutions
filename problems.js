@@ -603,3 +603,16 @@ function validTime(time) {
     let arr = time.split(':')
     return +arr[0] < 24 && +arr[1] < 60
 }
+ // 35)Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
+
+//solution:
+function differentSquares(matrix) {
+    let arr = []
+    for(let i = 0; i < matrix.length-1; i++){
+        for(let j = 0; j< matrix[0].length-1; j++){
+            let seq = `${matrix[i][j]}${matrix[i][j+1]}${matrix[i+1][j]}${matrix[i+1][j+1]}`
+            if(!arr.includes(seq)) arr.push(seq)
+        }
+    }
+    return arr.length
+}
