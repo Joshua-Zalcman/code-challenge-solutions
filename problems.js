@@ -616,3 +616,22 @@ function differentSquares(matrix) {
     }
     return arr.length
 }
+// 36)Given an integer product, find the smallest positive (i.e. greater than 0) integer the product of whose digits is equal to product. If there is no such integer, return -1 instead.
+
+//solution:
+function digitsProduct(product) {
+    if(product === 0){
+         return 10
+    } else if( product < 10){
+        return product
+    } else {
+        let f = []
+        for(let i = 9; i > 1;i--){
+            while(product%i === 0){
+                f.push(i)
+                product /= i
+            }
+        }
+        return product > 1 ? -1 : +(f.reverse().join(''))
+    }
+}
