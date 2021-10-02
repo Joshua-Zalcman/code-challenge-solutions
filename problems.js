@@ -635,3 +635,22 @@ function digitsProduct(product) {
         return product > 1 ? -1 : +(f.reverse().join(''))
     }
 }
+
+// 37)You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes later will have an addition to its name in a form of (k), where k is the smallest positive integer such that the obtained name is not used yet.
+
+// Return an array of names that will be given to the files.
+
+//solution:
+function fileNaming(names) {
+    for(let i = 0; i < names.length; i++){
+        let index = names.indexOf(names[i])
+        if(index !== i){
+            let number = 1
+            while(names.slice(0,i+1).includes(`${names[i]}(${number})`)){
+                number++
+            }
+            names[i] = `${names[i]}(${number})`
+        }
+    }
+    return names
+}
