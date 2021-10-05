@@ -691,3 +691,20 @@ function allLongestStrings(arr) {
     }
     return arr.filter(x=> x.length === longest)
 }
+// 41)There are some people and cats in a house. You are given the number of legs they have all together. Your task is to return an array containing every possible number of people that could be in the house sorted in ascending order. It's guaranteed that each person has 2 legs and each cat has 4 legs.
+
+//solution:
+function houseOfCats(legs) {
+    let i
+    let arr = []
+    if(legs%4===0){
+        i = 0
+    } else {
+        i = 1
+    }
+    while(legs/2 >= i){
+        arr.push(i)
+        i += 2
+    }
+    return arr
+}
