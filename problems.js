@@ -708,3 +708,15 @@ function houseOfCats(legs) {
     }
     return arr
 }
+// 42)Check whether the given string is a subsequence of the plaintext alphabet.
+
+
+//solution:
+function alphabetSubsequence(s) {
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    let arr = s.split('')
+    for(let i = 0; i <arr.length - 1 ; i++){
+        if(alphabet.lastIndexOf(arr[i]) >= alphabet.lastIndexOf(arr[i+1])) return false
+    }
+    return true
+}
