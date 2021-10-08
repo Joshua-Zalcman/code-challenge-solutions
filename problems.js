@@ -739,3 +739,15 @@ function minimalNumberOfCoins(coins, price) {
     }
     return coinCount
 }
+
+// 44)Given a rectangular matrix of characters, add a border of asterisks(*) to it.
+
+//solution:
+function addBorder(picture) {
+    let edge = '*'.repeat(picture[0].length+2)
+    let arr = picture.map(x=> '*'+x+"*")
+    arr.unshift(edge)
+    arr.push(edge)
+    return arr
+}
+
