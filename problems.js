@@ -770,8 +770,6 @@ function electionsWinners(votes, k) {
 
 // 46)Given a positive integer number and a certain length, we need to modify the given number to have a specified length. We are allowed to do that either by cutting out leading digits (if the number needs to be shortened) or by adding 0s in front of the original
 
-
-
 //solution:
 function integerToStringOfFixedWidth(number, width) {
     let str = number.toString()
@@ -781,5 +779,23 @@ function integerToStringOfFixedWidth(number, width) {
         return str.slice(str.length - width)
     } else {
         return str
+    }
+}
+// 47)Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
+
+// Given two arrays a and b, check whether they are similar.
+
+//solution:
+function areSimilar(a, b) {
+    let indexes = []
+    for(let i = 0; i< a.length; i++){
+        if(a[i] !== b[i]) indexes.push(i)
+    }
+    if(indexes.length === 0){
+      return true  
+    } else if(indexes.length === 2){
+        return a[indexes[0]] === b[indexes[1]] && a[indexes[1]] === b[indexes[0]]
+    } else {
+        return false
     }
 }
