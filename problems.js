@@ -799,3 +799,21 @@ function areSimilar(a, b) {
         return false
     }
 }
+
+// 48)You are given two strings s and t of the same length, consisting of uppercase English letters. Your task is to find the minimum number of "replacement operations" needed to get some anagram of the string t from the string s. A replacement operation is performed by picking exactly one character from the string s and replacing it by some other character.
+
+//solution:
+function createAnagram(s, t) {
+    let diff =0
+    let arr = s.split('')
+    let arr2 = t.split('')
+    for(let i = 0; i < arr.length; i++){
+        if(arr2.includes(arr[i])){
+            let index = arr2.indexOf(arr[i])
+            arr2.splice(index,1)
+        } else {
+           diff++ 
+        }
+    }
+    return diff
+}
