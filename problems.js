@@ -835,3 +835,16 @@ function numbersGrouping(a) {
     }
     return Array.from(new Set(arr)).length + a.length
 }
+// 50)Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
+
+//solution:
+function differentSquares(matrix) {
+    let arr = []
+    for(let i = 0; i < matrix.length-1; i++){
+       for(let j = 0; j < matrix[0].length -1; j++){
+           let num = `${matrix[i][j]}${matrix[i][j+1]}${matrix[i+1][j]}${matrix[i+1][j+1]}`
+           arr.push(num)
+        } 
+    }
+    return Array.from(new Set(arr)).length
+}
