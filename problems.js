@@ -882,3 +882,19 @@ function mostFrequentDigitSum(n) {
     });
     return res
 }
+// 52)Define an alphabet reflection as follows: a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.
+
+// Define a string reflection as the result of applying the alphabet reflection to each of its characters.
+
+// Reflect the given string.
+
+//solution:
+function reflectString(str) {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
+    let arr = []
+    for( let i = 0; i < str.length; i++){
+        let letter = alphabet[alphabet.length - 1 - alphabet.indexOf(str[i])]
+        arr.push(letter)
+    }
+    return arr.join('')
+}
