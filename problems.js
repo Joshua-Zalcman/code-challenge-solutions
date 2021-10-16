@@ -915,3 +915,10 @@ function newNumeralSystem(number) {
     }
     return arr
 }
+// 54)Given a character, check if it represents an odd digit, an even digit or not a digit at all.
+
+//solution:
+function characterParity(symbol) {
+    if(Number.isNaN(+symbol)) return 'not a digit'
+    return +symbol % 2 === 0 ? 'even' : 'odd'
+}
