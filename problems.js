@@ -882,3 +882,36 @@ function mostFrequentDigitSum(n) {
     });
     return res
 }
+// 52)Define an alphabet reflection as follows: a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.
+
+// Define a string reflection as the result of applying the alphabet reflection to each of its characters.
+
+// Reflect the given string.
+
+//solution:
+function reflectString(str) {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
+    let arr = []
+    for( let i = 0; i < str.length; i++){
+        let letter = alphabet[alphabet.length - 1 - alphabet.indexOf(str[i])]
+        arr.push(letter)
+    }
+    return arr.join('')
+}
+// 53)Your Informatics teacher at school likes coming up with new ways to help you understand the material. When you started studying numeral systems, he introduced his own numeral system, which he's convinced will help clarify things. His numeral system has base 26, and its digits are represented by English capital letters - A for 0, B for 1, and so on.
+
+// The teacher assigned you the following numeral system exercise: given a one-digit number, you should find all unordered pairs of one-digit numbers whose values add up to the number.
+
+//solution:
+function newNumeralSystem(number) {
+    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+    let arr = []
+    let num = alphabet.indexOf(number)
+    let count = 0
+    while(count <= num ){
+        arr.push(`${alphabet[count]} + ${alphabet[num]}`)
+        num--
+        count++
+    }
+    return arr
+}
