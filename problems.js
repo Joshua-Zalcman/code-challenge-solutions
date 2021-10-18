@@ -933,3 +933,17 @@ function stolenLunch(note) {
     let alphabet = 'abcdefghij'.split('')
     return note.split('').map(x=> /[a-j]/.test(x) ? alphabet.indexOf(x) : /[0-9]/.test(x) ? alphabet[+x] : x).join('')
 }
+// 56)Given two version strings composed of several non-negative decimal fields separated by periods ("."), both strings contain equal number of numeric fields. Return true if the first version is higher than the second version and false otherwise.
+
+//solution:
+function higherVersion(ver1, ver2) {
+    let arr1 = ver1.split('.')
+    let arr2 = ver2.split('.')
+    let i = 0
+    while(i < arr1.length){
+        if(+arr1[i] > +arr2[i]) return true
+        if(+arr1[i] < +arr2[i]) return false
+        i++
+    }
+    return false
+}
