@@ -947,3 +947,29 @@ function higherVersion(ver1, ver2) {
     }
     return false
 }
+// 56)Consider the following ciphering algorithm:
+
+// For each character replace it with its code.
+// Concatenate all of the obtained numbers.
+// Given a ciphered string, return the initial one if it is known that it consists only of lowercase letters.
+
+//solution:
+function decipher(cipher) {
+    let code = []
+    let arr = cipher.split('')
+    for(let i = 0; i < arr.length; i+0){
+        console.log('i:',i)
+        let num = (arr[i].concat(arr[i+1]))
+        console.log(num)
+        if( num >= 97){
+            i = i+2
+            code.push(String.fromCharCode(num))
+        } else {
+            num = num.concat(arr[i+2])
+            console.log(num)
+            i = i+3
+            code.push(String.fromCharCode(num))
+        }
+    }
+    return code.join('')
+}
