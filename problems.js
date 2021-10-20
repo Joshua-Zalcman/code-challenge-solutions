@@ -973,3 +973,18 @@ function decipher(cipher) {
     }
     return code.join('')
 }
+// 57)Given an array of 2^k integers (for some integer k), perform the following operations until the array contains only one element:
+
+// On the 1st, 3rd, 5th, etc. iterations (1-based) replace each pair of consecutive elements with their sum;
+// On the 2nd, 4th, 6th, etc. iterations replace each pair of consecutive elements with their product.
+// After the algorithm has finished, there will be a single element left in the array. Return that element.
+
+//solution:
+function arrayConversion(arr) {
+    let odd = true
+    while(arr.length > 1){
+            arr = arr.map((x,i,array)=> i%2 === 0 ? odd ? x + array[i+1] : x * array[i+1] : 'a' ).filter(x=> x!=='a')
+            odd = !odd
+    }
+    return arr[0]
+}
