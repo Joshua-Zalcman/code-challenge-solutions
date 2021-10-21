@@ -988,3 +988,17 @@ function arrayConversion(arr) {
     }
     return arr[0]
 }
+// 58)Given array of integers, for each position i, search among the previous positions for the last (from the left) position that contains a smaller value. Store this value at position i in the answer. If no such value can be found, store -1 instead.
+
+//solution:
+function arrayPreviousLess(items) {
+    let arr = []
+    for(let i = 0; i < items.length; i++){
+        let value = -1
+        for(let j = 0; j < i; j++){
+            if(items[j] < items[i]) value = items[j]   
+        }
+        arr.push(value)
+    }
+    return arr
+}
