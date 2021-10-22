@@ -1002,3 +1002,22 @@ function arrayPreviousLess(items) {
     }
     return arr
 }
+// 59)Yesterday you found some shoes in the back of your closet. Each shoe is described by two values:
+
+// type indicates if it's a left or a right shoe;
+// size is the size of the shoe.
+// Your task is to check whether it is possible to pair the shoes you found in such a way that each pair consists of a right and a left shoe of an equal size.
+
+//solution:
+function pairOfShoes(shoes) {
+    while(shoes.length > 0){
+        let match = shoes.length
+        for(let j= 1; j<shoes.length;j++){
+            if(shoes[0][0]+shoes[j][0] === 1 && shoes[0][1] === shoes[j][1]){
+          shoes =  shoes.filter((x,i)=>i !== 0 && i !== j )  
+            }
+        }
+         if (match === shoes.length) return false
+    }
+    return true
+}
