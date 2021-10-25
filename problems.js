@@ -1021,3 +1021,29 @@ function pairOfShoes(shoes) {
     }
     return true
 }
+// 60)Given a rectangular matrix and an integer column, return an array containing the elements of the columnth column of the given matrix (the leftmost column is the 0th one).
+
+//solution:
+function extractMatrixColumn(matrix, column) {
+    return matrix.map(x=> x[column])
+}
+// 61)The longest diagonals of a square matrix are defined as follows:
+
+// the first longest diagonal goes from the top left corner to the bottom right one;
+// the second longest diagonal goes from the top right corner to the bottom left one.
+// Given a square matrix, your task is to reverse the order of elements on both of its longest diagonals.
+
+//solution:
+function reverseOnDiagonals(matrix) {
+    for(let i = 0; i< matrix.length/2; i++){
+        //left flip
+        let temp = matrix[i][i]
+        matrix[i][i] = matrix[matrix.length-1-i][matrix.length-1-i]
+        matrix[matrix.length-1-i][matrix.length-1-i] = temp
+        //right flip
+        let temp2 = matrix[i][matrix.length-1-i]
+        matrix[i][matrix.length-1-i] = matrix[matrix.length-1-i][i]
+        matrix[matrix.length-1-i][i] = temp2
+    }
+    return matrix
+}
