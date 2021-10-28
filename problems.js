@@ -1088,3 +1088,28 @@ function volleyballPositions(frm, k) {
     frm[2][1]= players[5]
     return frm
 }
+// 64)Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 sub-grids that compose the grid contains all of the digits from 1 to 9.
+
+// This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.
+
+//solution:
+function sudoku(grid) {
+    for(let i = 0; i < 9; i++){
+        if(Array.from(new Set(grid[i])).length !== 9) return false
+        let arr = []
+        let square = []
+        for(let j=0;j<9;j++){
+            arr.push(grid[j][i])
+            if(i === 1 || i === 4 || i === 7){
+                if(j === 1 || j === 4 || j ===7){
+                    square = [grid[j][i],grid[j][i+1],grid[j][i-1],grid[j+1][i],grid[j-1][i],grid[j-1][i-1],grid[j+1][i+1],grid[j-1][i+1],grid[j+1][i-1],]
+                }
+            }
+        }
+        if(square.length > 0){
+            if(Array.from(new Set(square)).length !== 9) return false
+        }
+        if(Array.from(new Set(arr)).length !== 9) return false
+    }
+    return true
+}
