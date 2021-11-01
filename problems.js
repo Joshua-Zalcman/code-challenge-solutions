@@ -1170,3 +1170,34 @@ function boxBlur(image) {
     }
     return grid
 }
+// 67)You have a rectangular white board with some black cells. The black cells create a connected black figure, i.e. it is possible to get from any black cell to any other one through connected adjacent (sharing a common side) black cells.
+
+// Find the perimeter of the black figure assuming that a single cell has unit length.
+
+// It's guaranteed that there is at least one black cell on the table.
+
+//solution:
+function polygonPerimeter(matrix) {
+    let count = 0
+    for(let i = 0; i<matrix.length; i++){
+        for(let j = 0; j<matrix[0].length; j++){
+            if(matrix[i][j]){
+                if(i === 0 || i === matrix.length-1){
+                   count++ 
+                   if(i === 0 && !matrix[i+1][j] || i === matrix.length-1 && !matrix[i-1][j]) count++
+                } else{
+                    if(!matrix[i-1][j])count++
+                    if(!matrix[i+1][j])count++
+                } 
+                if(j === 0 || j === matrix[0].length-1){
+                    count++
+                    if(j === 0 && !matrix[i][j+1] || j === matrix[0].length-1 && !matrix[i][j-1]) count++
+                } else{
+                    if(!matrix[i][j-1])count++
+                    if(!matrix[i][j+1])count++
+                } 
+            }
+        }
+    }
+    return count
+}
