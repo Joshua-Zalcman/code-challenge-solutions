@@ -1229,10 +1229,19 @@ function isInformationConsistent(evidences) {
 // Given the array shuffled, consisting of elements a1, a2, ..., an, a1 + a2 + ... + an in random order, return the sorted array of original elements a1, a2, ..., an.
 
 
-
 //solution:
 function shuffledArray(shuffled) {
     let sum = shuffled.reduce((acc,item)=> acc+item,0)
     let index = shuffled.indexOf(sum/2)
     return shuffled.filter((x,i)=> i!== index).sort((a,b)=> a - b)
+}
+// 70)Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!
+
+//solution:
+function sortByHeight(a) {
+    var sorted = a.filter(h => h != -1).sort((a,b) => a-b)
+    
+    var j = 0
+    
+    return a.map((h, i) =>  h != -1 ? sorted[j++] : h)
 }
