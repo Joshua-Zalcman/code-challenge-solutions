@@ -1245,3 +1245,9 @@ function sortByHeight(a) {
     
     return a.map((h, i) =>  h != -1 ? sorted[j++] : h)
 }
+// 71)Given an array of strings, sort them in the order of increasing lengths. If two strings have the same length, their relative order must be the same as in the initial array.
+
+//solution:
+function sortByLength(arr) {
+    return arr.sort((a,b)=>a.length-b.length)
+}
