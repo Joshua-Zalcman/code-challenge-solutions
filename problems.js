@@ -1282,3 +1282,17 @@ function maximumSum(a, q) {
     })
     return sum
 }
+// 73)Given a rectangular matrix of integers, check if it is possible to rearrange its rows in such a way that all its columns become strictly increasing sequences (read from top to bottom).
+
+//solution:
+function rowsRearranging(matrix) {
+    matrix.sort((a,b)=> a[0]-b[0])
+    for(let i = 0; i < matrix[0].length; i++){
+        for(let j = 1; j < matrix.length; j++){
+            if(matrix[j][i] <= matrix[j-1][i]){
+              return false  
+            } 
+        }
+    }
+    return true
+}
