@@ -1251,3 +1251,48 @@ function sortByHeight(a) {
 function sortByLength(arr) {
     return arr.sort((a,b)=>a.length-b.length)
 }
+// 72)You are given an array of integers a. A range sum query is defined by a pair of non-negative integers l and r (l <= r). The output to a range sum query on the given array a is the sum of all the elements of a that have indices from l to r, inclusive.
+
+// You have the array a and a list of range sum queries q. Find an algorithm that can rearrange the array a in such a way that the total sum of all of the query outputs is maximized, and return this total sum.
+
+//solution:
+function maximumSum(a, q) {
+    let arr = [...a].sort((a,b)=>b-a)
+    let map = {}
+    q.forEach(x=>{
+        let i = x[0]
+        while(i<=x[1]){
+            if(map[i]){
+                map[i] = map[i] + 1
+            } else{
+                map[i] = 1
+            }
+            i++
+        }
+    })
+    let order = Object.entries(map).sort((a,b)=> b[1]-a[[1]])
+    for(let j = 0 ; j<order.length; j++){
+        let temp = arr[j]
+        a[+order[j][0]] = temp
+    }
+    let sum = 0
+    q.forEach(x=>{
+        let rangeSum = a.slice(x[0],x[1]+1).reduce((acc,item)=>acc+item,0)
+        sum += rangeSum
+    })
+    return sum
+}
+// 73)Given a rectangular matrix of integers, check if it is possible to rearrange its rows in such a way that all its columns become strictly increasing sequences (read from top to bottom).
+
+//solution:
+function rowsRearranging(matrix) {
+    matrix.sort((a,b)=> a[0]-b[0])
+    for(let i = 0; i < matrix[0].length; i++){
+        for(let j = 1; j < matrix.length; j++){
+            if(matrix[j][i] <= matrix[j-1][i]){
+              return false  
+            } 
+        }
+    }
+    return true
+}
