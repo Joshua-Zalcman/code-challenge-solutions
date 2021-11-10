@@ -1296,3 +1296,15 @@ function rowsRearranging(matrix) {
     }
     return true
 }
+// 74)Given an array of integers, sort its elements by the difference of their largest and smallest digits. In the case of a tie, that with the larger index in the array should come first.
+
+//solution:
+function digitDifferenceSort(a) {
+    let arr = a.map((x,i)=> {
+        let num = x.toString().split('').map((x)=> +x)
+        let diff = Math.max(...num) - Math.min(...num)
+        return [x,diff,i]
+    })
+    console.log(arr)
+    return arr.sort((a,b)=> a[1]===b[1]? b[2]-a[2] :  a[1]-b[1]).map(x=> x[0])
+}
