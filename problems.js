@@ -1308,3 +1308,10 @@ function digitDifferenceSort(a) {
     console.log(arr)
     return arr.sort((a,b)=> a[1]===b[1]? b[2]-a[2] :  a[1]-b[1]).map(x=> x[0])
 }
+// 75)Let's call product(x) the product of x's digits. Given an array of integers a, calculate product(x) for each x in a, and return the number of distinct results you get.
+
+//solution:
+function uniqueDigitProducts(a) {
+    let arr = a.map(x=> x.toString().split('').reduce((acc,item)=> acc*(+item),1))
+    return (new Set(arr)).size
+}
