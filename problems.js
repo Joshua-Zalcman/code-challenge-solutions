@@ -1315,3 +1315,16 @@ function uniqueDigitProducts(a) {
     let arr = a.map(x=> x.toString().split('').reduce((acc,item)=> acc*(+item),1))
     return (new Set(arr)).size
 }
+// 76)Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
+
+// The bishop has no restrictions in distance for each move, but is limited to diagonal movement. 
+
+//solution:
+function bishopAndPawn(bishop, pawn) {
+    const arr = 'abcdefgh'.split('')
+    let bLetter = arr.indexOf(bishop[0])
+    let pLetter = arr.indexOf(pawn[0])
+    let bNumber = +bishop[1]
+    let pNumber = +pawn[1]
+    return Math.abs(bLetter - pLetter) === Math.abs(bNumber - pNumber)
+}
