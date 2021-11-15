@@ -1328,3 +1328,39 @@ function bishopAndPawn(bishop, pawn) {
     let pNumber = +pawn[1]
     return Math.abs(bLetter - pLetter) === Math.abs(bNumber - pNumber)
 }
+// 77)Given a position of a knight on the standard chessboard, find the number of different moves the knight can perform.
+
+// The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from it. The complete move therefore looks like the letter L. Check out the image below to see all valid moves for a knight piece that is placed on one of the central squares.
+
+//solution:
+function solution(cell) {
+    let count = 8
+    let cond = 0
+    if(cell[0]==='a' || cell[0]==='h'){
+        count-=4
+        cond +=2
+    } 
+    if(cell[0]==='b' || cell[0]==='g'){
+        count-=2
+        cond +=1
+    } 
+    if(cell[1]==='1' || cell[1]==='8'){
+        if(cond === 2){
+            count-=2
+        } else if(cond === 1){
+            count -=3
+        } else {
+            count -=4
+        }
+    }
+    if(cell[1]==='2' || cell[1]==='7'){
+        if(cond === 2){
+            count-=1
+        } else if(cond === 1){
+            count -=2
+        } else {
+            count -=2
+        }
+    }
+    return count
+}
