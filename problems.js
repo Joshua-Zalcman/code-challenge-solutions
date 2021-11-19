@@ -1364,3 +1364,10 @@ function solution(cell) {
     }
     return count
 }
+// 78)Check if the given string is a correct time representation of the 24-hour clock.
+
+//solution:
+function solution(time) {
+    let arr = time.split(':')
+    return +arr[0] < 24 && +arr[0] >= 0 && +arr[1] >= 0 && +arr[1] <= 59
+}
