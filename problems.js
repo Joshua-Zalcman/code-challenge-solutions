@@ -1371,3 +1371,19 @@ function solution(time) {
     let arr = time.split(':')
     return +arr[0] < 24 && +arr[0] >= 0 && +arr[1] >= 0 && +arr[1] <= 59
 }
+// 79)You have been watching a video for some time. Knowing the total video duration find out what portion of the video you have already watched.
+
+//solution:
+function solution(part, total) {
+    let partS = toSeconds(part.split(':'))
+    let totalS = toSeconds(total.split(':'))
+    let gcd = function gcd(a,b){
+    return b ? gcd(b, a%b) : a;
+  };
+  gcd = gcd(partS,totalS);
+  return [partS/gcd, totalS/gcd];
+}
+
+function toSeconds(arr){
+    return (+arr[0])*60*60 + (+arr[1])*60
++ (+arr[2])}
