@@ -1387,3 +1387,47 @@ function solution(part, total) {
 function toSeconds(arr){
     return (+arr[0])*60*60 + (+arr[1])*60
 + (+arr[2])}
+
+// 80)Whenever you decide to celebrate your birthday you always do this your favorite café, which is quite popular and as such usually very crowded. This year you got lucky: when you and your friend enter the café you're surprised to see that it's almost empty. The waiter lets slip that there are always very few people on this day of the week.
+
+// You enjoyed having the café all to yourself, and are now curious about the next time you'll be this lucky. Given the current birthdayDate, determine the number of years until it will fall on the same day of the week.
+
+// For your convenience, here is the list of months lengths (from January to December, respectively):
+
+// Months lengths: 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31.
+// Please, note that in leap years February has 29 days. If your birthday is on the 29th of February, you celebrate it once in four years. Otherwise you birthday is celebrated each year.
+
+//solution:
+function solution(birthdayDate) {
+    let day = (new Date(birthdayDate)).getUTCDay()
+    let count = 1
+    let leap = false
+    let arr = birthdayDate.split('-')
+    if(arr[0] === '02' && arr[1]==='29'){
+        count = 4
+        leap = true
+    } 
+    arr[2] = +arr[2]
+    let nextDay = -1
+    while(nextDay !== day){
+        if(leap){
+            arr[2] += 4
+            if(arr[2]%100===0){
+                count+=4
+                continue
+            } 
+        } else{
+            arr[2]++
+        }
+        nextDay = (new Date(arr.join('-'))).getUTCDay()
+        if(nextDay === day){
+          return count  
+        } else {
+            if(leap){
+                count+=4
+            }else{
+                count++
+            }
+        }
+    }
+}
